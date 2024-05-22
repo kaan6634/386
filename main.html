@@ -1,243 +1,387 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MyHabits+ Dashboard</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #fff9c4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #fff9c4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
 
+      .container {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        max-width: 1200px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+      }
+
+      .sidebar {
+        width: 100%;
+        background-color: #c8e6c9;
+        padding: 20px;
+        border-bottom: 1px solid #ccc;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .sidebar h1 {
+        color: #00796b;
+        margin-bottom: 20px;
+      }
+
+      .sidebar-button {
+        background-color: #e0f2f1;
+        border: none;
+        padding: 10px;
+        margin-bottom: 10px;
+        width: 100%;
+        text-align: left;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        color: #00796b;
+      }
+
+      .sidebar-button:hover {
+        background-color: #b2dfdb;
+      }
+
+      .legend {
+        margin-top: 20px;
+        width: 100%;
+      }
+
+      .legend div {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .legend-color {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        margin-right: 10px;
+      }
+
+      .red {
+        background-color: #f44336;
+      }
+      .blue {
+        background-color: #2196f3;
+      }
+      .green {
+        background-color: #4caf50;
+      }
+      .cyan {
+        background-color: #00bcd4;
+      }
+      .orange {
+        background-color: #ff9800;
+      }
+      .grey {
+        background-color: #9e9e9e;
+      }
+
+      .main-content {
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .logout-button {
+        align-self: flex-end;
+        background-color: #00796b;
+        border: none;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .logout-button:hover {
+        background-color: #004d40;
+      }
+
+      .chart {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: flex-end;
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      .bar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        width: 50px;
+        border-radius: 5px;
+        padding: 10px 0;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .bar i {
+        margin-bottom: 10px;
+      }
+
+      .bar p {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #000;
+      }
+
+      .red {
+        background-color: #f44336;
+      }
+      .orange {
+        background-color: #ff9800;
+      }
+      .green {
+        background-color: #4caf50;
+      }
+      .blue {
+        background-color: #2196f3;
+      }
+      .cyan {
+        background-color: #00bcd4;
+      }
+      .grey {
+        background-color: #9e9e9e;
+      }
+
+      .flame {
+        position: absolute;
+        top: -20px;
+        width: 80px;
+        height: 150px;
+        background: url("chiquichico.gif") no-repeat center center;
+        background-size: cover;
+        animation: flame 0.5s ease-in-out infinite;
+        display: none;
+      }
+
+      @keyframes flame {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @media (min-width: 769px) {
         .container {
-            display: flex;
-            width: 90%;
-            max-width: 1200px;
-            height: 80%;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          flex-direction: row;
+          height: 80vh;
         }
 
         .sidebar {
-            width: 20%;
-            background-color: #c8e6c9;
-            padding: 20px;
-            border-top-left-radius: 10px;
-            border-bottom-left-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+          width: 20%;
+          height: 100%;
+          border-right: 1px solid #ccc;
+          border-bottom: none;
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
         }
-
-        .sidebar h1 {
-            color: #00796b;
-            margin-bottom: 20px;
-        }
-
-        .sidebar-button {
-            background-color: #e0f2f1;
-            border: none;
-            padding: 10px;
-            margin-bottom: 10px;
-            width: 100%;
-            text-align: left;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            color: #00796b;
-        }
-
-        .sidebar-button:hover {
-            background-color: #b2dfdb;
-        }
-
-        .legend {
-            margin-top: 20px;
-            width: 100%;
-        }
-
-        .legend div {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .legend-color {
-            display: inline-block;
-            width: 15px;
-            height: 15px;
-            margin-right: 10px;
-        }
-
-        .red { background-color: #f44336; }
-        .blue { background-color: #2196f3; }
-        .green { background-color: #4caf50; }
-        .cyan { background-color: #00bcd4; }
-        .orange { background-color: #ff9800; }
-        .grey { background-color: #9e9e9e; }
 
         .main-content {
-            width: 80%;
-            padding: 20px;
-            position: relative;
+          width: 80%;
+          height: 100%;
+          padding: 20px;
+          align-items: flex-start;
+          justify-content: flex-start;
         }
 
         .logout-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: #00796b;
-            border: none;
-            color: #ffffff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .logout-button:hover {
-            background-color: #004d40;
+          position: absolute;
+          top: 20px;
+          right: 20px;
         }
 
         .chart {
-            display: flex;
-            justify-content: space-around;
-            align-items: flex-end;
-            height: 100%;
+          flex-direction: row;
+          height: calc(100% - 60px);
         }
 
         .bar {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            width: 50px;
-            border-radius: 5px;
-            padding: 10px 0;
-            position: relative;
-            cursor: pointer;
+          width: 50px;
+          height: auto;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .sidebar h1 {
+          font-size: 24px;
+          margin-bottom: 10px;
         }
 
-        .bar i {
-            margin-bottom: 10px;
+        .sidebar-button {
+          font-size: 14px;
+          padding: 8px;
+        }
+
+        .legend div {
+          font-size: 12px;
+        }
+
+        .main-content {
+          padding: 10px;
+        }
+
+        .logout-button {
+          font-size: 12px;
+          padding: 6px 12px;
         }
 
         .bar p {
-            margin-top: 10px;
-            font-size: 14px;
-            color: #000;
+          font-size: 12px;
         }
 
-        .red { background-color: #f44336; }
-        .orange { background-color: #ff9800; }
-        .green { background-color: #4caf50; }
-        .blue { background-color: #2196f3; }
-        .cyan { background-color: #00bcd4; }
-        .grey { background-color: #9e9e9e; }
-
-        .flame {
-            position: absolute;
-            top: -20px;
-            width: 80px;
-            height: 150px;
-            background: url("chiquichico.gif") no-repeat center center;
-            background-size: cover;
-            animation: flame 0.5s ease-in-out infinite;
-            display: none;
+        .bar i {
+          font-size: 24px;
         }
-
-        @keyframes flame {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
-
-        
+      }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-<div class="container">
-    <div class="sidebar">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
         <h1>MyHabits+</h1>
-        <a href="profile.html" style="width: 100%"><button class="sidebar-button">My Profile</button></a>
-        <a href="friends.html" style="width: 100%">   <button class="sidebar-button">Friends</button> </a>
-        <a href="aboutUS.html" style="width: 100%">   <button class="sidebar-button">About Us</button> </a>
-        <a href="helpPage.html" style="width: 100%">   <button class="sidebar-button">Help</button> </a>
+        <a href="profile.html" style="width: 100%"
+          ><button class="sidebar-button">My Profile</button></a
+        >
+        <a href="friends.html" style="width: 100%">
+          <button class="sidebar-button">Friends</button>
+        </a>
+        <a href="aboutUS.html" style="width: 100%">
+          <button class="sidebar-button">About US</button>
+        </a>
+        <a href="helpPage.html" style="width: 100%">
+          <button class="sidebar-button">Help</button>
+        </a>
         <div class="legend">
-            <div><span class="legend-color red"></span> Entertainment</div>
-            <div><span class="legend-color blue"></span> Health</div>
-            <div><span class="legend-color green"></span> Sport</div>
-            <div><span class="legend-color cyan"></span> Music</div>
-            <div><span class="legend-color orange"></span> Art</div>
+          <div><span class="legend-color red"></span> Entertainment</div>
+          <div><span class="legend-color blue"></span> Health</div>
+          <div><span class="legend-color green"></span> Sport</div>
+          <div><span class="legend-color cyan"></span> Music</div>
+          <div><span class="legend-color orange"></span> Art</div>
         </div>
-    </div>
-    <div class="main-content">
+      </div>
+      <div class="main-content">
         <a href="index.html"><button class="logout-button">Log out</button></a>
         <div class="chart">
-            <div class="bar red" data-goal="10" data-count="3" style="height: 30%;">
-                <div class="flame"></div>
-                <i class="fas fa-film fa-2x"></i>
-                <p>Task 1: <span class="counter">3/10</span></p>
-            </div>
-            <div class="bar orange" data-goal="10" data-count="2" style="height: 20%;">
-                <div class="flame"></div>
-                <i class="fas fa-paint-brush fa-2x"></i>
-                <p>Task 2: <span class="counter">2/10</span></p>
-            </div>
-            <div class="bar green" data-goal="10" data-count="5" style="height: 50%;">
-                <div class="flame"></div>
-                <i class="fas fa-basketball-ball fa-2x"></i>
-                <p>Task 3: <span class="counter">5/10</span></p>
-            </div>
-            <div class="bar blue" data-goal="10" data-count="7" style="height: 70%;">
-                <div class="flame"></div>
-                <i class="fas fa-heartbeat fa-2x"></i>
-                <p>Task 4: <span class="counter">7/10</span></p>
-            </div>
-            <div class="bar cyan" data-goal="10" data-count="4" style="height: 40%;">
-                <div class="flame"></div>
-                <i class="fas fa-music fa-2x"></i>
-                <p>Task 5: <span class="counter">4/10</span></p>
-            </div>
-            <div class="bar grey" data-goal="10" data-count="8" style="height: 80%;">
-                <div class="flame"></div>
-                <i class="fas fa-ellipsis-h fa-2x"></i>
-                <p>Task 6: <span class="counter">8/10</span></p>
-            </div>
+          <div
+            class="bar red"
+            data-goal="10"
+            data-count="3"
+            style="height: 30%"
+          >
+            <div class="flame"></div>
+            <i class="fas fa-film fa-2x"></i>
+            <p>Task 1: <span class="counter">3/10</span></p>
+          </div>
+          <div
+            class="bar orange"
+            data-goal="10"
+            data-count="2"
+            style="height: 20%"
+          >
+            <div class="flame"></div>
+            <i class="fas fa-paint-brush fa-2x"></i>
+            <p>Task 2: <span class="counter">2/10</span></p>
+          </div>
+          <div
+            class="bar green"
+            data-goal="10"
+            data-count="5"
+            style="height: 50%"
+          >
+            <div class="flame"></div>
+            <i class="fas fa-basketball-ball fa-2x"></i>
+            <p>Task 3: <span class="counter">5/10</span></p>
+          </div>
+          <div
+            class="bar blue"
+            data-goal="10"
+            data-count="7"
+            style="height: 70%"
+          >
+            <div class="flame"></div>
+            <i class="fas fa-heartbeat fa-2x"></i>
+            <p>Task 4: <span class="counter">7/10</span></p>
+          </div>
+          <div
+            class="bar cyan"
+            data-goal="10"
+            data-count="4"
+            style="height: 40%"
+          >
+            <div class="flame"></div>
+            <i class="fas fa-music fa-2x"></i>
+            <p>Task 5: <span class="counter">4/10</span></p>
+          </div>
+          <div
+            class="bar grey"
+            data-goal="10"
+            data-count="8"
+            style="height: 80%"
+          >
+            <div class="flame"></div>
+            <i class="fas fa-ellipsis-h fa-2x"></i>
+            <p>Task 6: <span class="counter">8/10</span></p>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
         const bars = document.querySelectorAll(".bar");
 
-        bars.forEach(bar => {
-            bar.addEventListener("click", () => {
-                let goal = parseInt(bar.dataset.goal);
-                let count = parseInt(bar.dataset.count);
+        bars.forEach((bar) => {
+          bar.addEventListener("click", () => {
+            let goal = parseInt(bar.dataset.goal);
+            let count = parseInt(bar.dataset.count);
 
-                if (count < goal) {
-                    count++;
-                    bar.dataset.count = count;
-                    const heightPercentage = (count / goal) * 100;
-                    bar.style.height = heightPercentage + "%";
-                    bar.querySelector(".counter").textContent = count + "/" + goal;
-                    if (count === goal) {
-                        bar.querySelector(".counter").textContent = "Complete";
-                        bar.querySelector(".flame").style.display = "block";
-                    }
-                }
-            });
+            if (count < goal) {
+              count++;
+              bar.dataset.count = count;
+              const heightPercentage = (count / goal) * 100;
+              bar.style.height = heightPercentage + "%";
+              bar.querySelector(".counter").textContent = count + "/" + goal;
+              if (count === goal) {
+                bar.querySelector(".counter").textContent = "Complete";
+                bar.querySelector(".flame").style.display = "block";
+              }
+            }
+          });
         });
-    });
-</script>
-</body>
+      });
+    </script>
+  </body>
 </html>
