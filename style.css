@@ -1,3 +1,4 @@
+/* Genel Stil */
 body {
   font-family: Arial, sans-serif;
   background-color: #e0f7da;
@@ -85,4 +86,49 @@ body {
 .right-panel p {
   text-align: center;
   color: #757575;
+}
+
+/* Mobil Cihazlar İçin Stil */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    justify-content: flex-start;
+    height: auto;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: calc(
+      100% - 40px
+    ); /* Kenarlardan biraz boşluk bırakmak için genişlik ayarı */
+    margin: 10px;
+  }
+
+  .left-panel h1 {
+    font-size: 28px;
+  }
+
+  .right-panel button {
+    height: 40px; /* Daha büyük buton */
+  }
+}
+
+@media (max-width: 480px) {
+  .left-panel .illustration img {
+    width: 100%;
+    max-width: 150px; /* Küçük ekranlarda resmin boyutunu küçült */
+  }
+
+  .right-panel label,
+  .right-panel input[type="email"],
+  .right-panel input[type="password"],
+  .right-panel .remember-me label,
+  .right-panel button {
+    font-size: 0.9em; /* Metin boyutunu küçült */
+  }
+
+  .right-panel input[type="email"],
+  .right-panel input[type="password"] {
+    padding: 8px; /* Girdi alanlarının iç dolgusunu küçült */
+  }
 }
