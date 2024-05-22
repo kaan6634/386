@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyHabits+ Friends</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff9c4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            width: 90%;
+            max-width: 1200px;
+            height: 80%;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+        }
+
+        .sidebar {
+            width: 20%;
+            background-color: #c8e6c9;
+            padding: 20px;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sidebar h1 {
+            color: #00796b;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-button {
+            background-color: #8eacbb;
+            border: none;
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: left;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #ffffff;
+        }
+
+        .sidebar-button:hover {
+            background-color: #546e7a;
+        }
+
+        .sidebar-button i {
+            margin-right: 10px;
+        }
+
+        .sidebar-button a {
+            color: #ffffff;
+            text-decoration: none;
+            display: block;
+        }
+
+        .main-content {
+            width: 80%;
+            padding: 20px;
+            position: relative;
+        }
+
+        .main-content h2 {
+            color: #00796b;
+            margin-bottom: 20px;
+        }
+
+        .main-content p {
+            margin: 10px 0;
+            text-align: left;
+            color: #616161;
+            display: flex;
+            align-items: center;
+        }
+
+        .main-content p img {
+            margin-right: 10px;
+        }
+
+        .home-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #aed581;
+            border: none;
+            color: #ffffff;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .home-button:hover {
+            background-color: #7cb342;
+        }
+
+        .friends-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .friends-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .friends-list li i {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .invite-button {
+            background-color: #8eacbb;
+            border: none;
+            padding: 10px 20px;
+            color: #ffffff;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .invite-button i {
+            margin-left: 10px;
+        }
+
+        .invite-button:hover {
+            background-color: #546e7a;
+        }
+
+        .achievement {
+            background-color: #80deea;
+            border-radius: 5px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .achievement img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        .achievement p {
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .reaction-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .reaction-buttons button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .sidebar-button.active {
+            background-color: #00796b; /* Active button color */
+            color: #ffffff;
+        }
+
+        .reaction-buttons button:hover {
+            transform: scale(1.2);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="sidebar">
+        <h1>MyHabits+</h1>
+        <a href="profile.html" style="width: 100%"><button class="sidebar-button">My Profile</button></a>
+        <a href="friends.html" style="width: 100%">   <button class="sidebar-button active">Friends</button> </a>
+        <a href="aboutUS.html" style="width: 100%">   <button class="sidebar-button">About US</button> </a>
+        <a href="helpPage.html" style="width: 100%">   <button class="sidebar-button ">Help</button> </a>
+    </div>
+    <div class="main-content">
+        <h2>*</h2>
+        <button class="home-button" onclick="window.location.href='main.html'">
+            HOME
+        </button>        <h2>Friends</h2>
+        <ul class="friends-list">
+            <li><i class="fas fa-user-circle"></i> UserFriend1</li>
+            <li><i class="fas fa-user-circle"></i> UserFriend2</li>
+            <li><i class="fas fa-user-circle"></i> UserFriend3</li>
+        </ul>
+        <a href="https://www.facebook.com" target="_blank" class="invite-button">
+            Invite Friends via Facebook
+            <i class="fab fa-facebook"></i>
+        </a>
+        <div class="achievement">
+            <img src="images/achievement.png" alt="Achievement">
+            <p>UserFriend2 earned MyHabits+ achievement.</p>
+            <div class="reaction-buttons">
+                <button><i class="fas fa-plus"></i></button>
+                <button><i class="fas fa-surprise"></i></button>
+                <button><i class="fas fa-smile"></i></button>
+                <button><i class="fas fa-thumbs-up"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyHabits+ Help</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4c3;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            width: 90%;
+            max-width: 1200px;
+            height: 80%;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+        }
+
+        .sidebar {
+            width: 20%;
+            background-color: #c8e6c9;
+            padding: 20px;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sidebar h1 {
+            color: #00796b;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-button {
+            background-color: #8eacbb;
+            border: none;
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: left;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #ffffff;
+        }
+
+        .sidebar-button:hover {
+            background-color: #546e7a;
+        }
+
+        .sidebar-button i {
+            margin-right: 10px;
+        }
+
+        .main-content {
+            width: 80%;
+            padding: 20px;
+            position: relative;
+        }
+
+        .main-content h2 {
+            color: #00796b;
+            margin-bottom: 20px;
+        }
+
+        .main-content p {
+            margin: 10px 0;
+            text-align: left;
+            color: #616161;
+            display: flex;
+            align-items: center;
+        }
+
+        .main-content p img {
+            margin-right: 10px;
+        }
+
+        .home-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #aed581;
+            border: none;
+            color: #ffffff;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .home-button:hover {
+            background-color: #7cb342;
+        }
+        .sidebar-button.active {
+            background-color: #00796b; /* Active button color */
+            color: #ffffff;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="sidebar">
+        <h1>MyHabits+</h1>
+        <a href="profile.html" style="width: 100%"><button class="sidebar-button">My Profile</button></a>
+        <a href="friends.html" style="width: 100%">   <button class="sidebar-button">Friends</button> </a>
+        <a href="aboutUS.html" style="width: 100%">   <button class="sidebar-button">About US</button> </a>
+        <a href="helpPage.html" style="width: 100%">   <button class="sidebar-button active">Help</button> </a>
+    </div>
+    <div class="main-content">
+        <a href="main.html"><button class="home-button"><i class="fas fa-arrow-left"></i> HOME</button></a>
+        <h2>*</h2>
+        <h2>Help Section</h2>
+        <p><img src="icons8-get-started-app-48.png" alt="Getting Started" class="icon">Getting Started: New to our website? Start here! This section will walk you through the basics, including how to create an account, customize your profile, and explore our content categories.</p>
+        <p><img src="https://img.icons8.com/color/48/000000/faq.png" alt="FAQs" class="icon">FAQs: Have questions? Check out our frequently asked questions section for quick answers to common queries about our platform, services, and resources.</p>
+        <p><img src="https://img.icons8.com/color/48/000000/workflow.png" alt="Resources" class="icon">Habit-Building Resources: Dive into our curated collection of habit-building resources, including guides, and tools designed to help you develop and maintain positive habits in various areas of your life.</p>
+        <p><img src="https://img.icons8.com/color/48/000000/contact-card.png" alt="Contact Us" class="icon">Contact Us: Still have questions or need further assistance? Don't hesitate to reach out to our dedicated support team. We're here to help and are committed to ensuring that you have a positive experience on our platform.</p>
+        <p><img src="https://img.icons8.com/color/48/000000/feedback.png" alt="Feedback" class="icon">Feedback: We value your feedback! Share your thoughts, suggestions, and ideas for improvement with us. Your input helps us continually enhance and refine our platform to better serve your needs.</p>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+</body>
+</html>

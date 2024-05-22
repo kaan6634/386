@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyHabits+ Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff9c4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            width: 90%;
+            max-width: 1200px;
+            height: 80%;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar {
+            width: 20%;
+            background-color: #c8e6c9;
+            padding: 20px;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sidebar h1 {
+            color: #00796b;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-button {
+            background-color: #e0f2f1;
+            border: none;
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: left;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #00796b;
+        }
+
+        .sidebar-button:hover {
+            background-color: #b2dfdb;
+        }
+
+        .main-content {
+            width: 80%;
+            padding: 20px;
+            position: relative;
+            background-color: #fff9c4;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .home-button {
+            position: absolute;
+            top: 20px;
+            right: 20px; /* Right side alignment */
+            background-color: #00796b;
+            border: none;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .home-button:hover {
+            background-color: #004d40;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-header img {
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .profile-header div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-header h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .profile-header p {
+            margin: 0;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .badges {
+            margin-top: 20px;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #e0f2f1;
+        }
+
+        .badge.complete {
+            background-color: #bb5e37;
+            color: #ffffff;
+        }
+
+        .badge-icon {
+            margin-right: 20px;
+        }
+
+        .badge-details {
+            flex: 1;
+        }
+
+        .badge-details p {
+            margin: 0;
+        }
+        .sidebar-button.active {
+            background-color: #00796b; /* Active button color */
+            color: #ffffff;
+        }
+
+        .badge-progress {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+</head>
+<body>
+<div class="container">
+    <div class="sidebar">
+        <h1>MyHabits+</h1>
+        <a href="profile.html" style="width: 100%"><button class="sidebar-button active">My Profile</button></a>
+        <a href="friends.html" style="width: 100%">   <button class="sidebar-button">Friends</button> </a>
+        <a href="aboutUS.html" style="width: 100%">   <button class="sidebar-button">About US</button> </a>
+        <a href="helpPage.html" style="width: 100%">   <button class="sidebar-button">Help</button> </a>
+
+    </div>
+    <div class="main-content">
+        <button class="home-button" onclick="window.location.href='main.html'">
+            Home
+        </button>
+        <div class="profile-header">
+            <img src="https://via.placeholder.com/100" alt="User Avatar" />
+            <div>
+                <h2>UserNickname1234</h2>
+                <p>UserName1234 UserSurname1234</p>
+            </div>
+        </div>
+        <h2>Badges</h2>
+        <div class="badges" id="badges">
+            <!-- Badge items will be dynamically inserted here -->
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const badges = [
+            {
+                icon: "fas fa-music",
+                name: "Hard Work, Not Talent",
+                description:
+                    "Catch a total of 365 daily series in the any music category",
+                goal: 365,
+                count: 365, // Updated value
+            },
+            {
+                icon: "fas fa-smoking-ban",
+                name: "Fresh Air",
+                description: "Don't smoke for 730 days",
+                goal: 730,
+                count: 441, // Updated value
+            },
+            {
+                icon: "fas fa-dumbbell",
+                name: "Jack Of All Trades",
+                description:
+                    "Achieve streaks in 5 different sports at the same time",
+                goal: 5,
+                count: 5, // Updated value
+            },
+        ];
+
+        const badgesContainer = document.getElementById("badges");
+
+        badges.forEach((badge) => {
+            const badgeElement = document.createElement("div");
+            badgeElement.classList.add("badge");
+            if (badge.count >= badge.goal) {
+                badgeElement.classList.add("complete");
+            }
+
+            badgeElement.innerHTML = `
+                <i class="${badge.icon} badge-icon fa-2x"></i>
+                <div class="badge-details">
+                    <p>${badge.name}</p>
+                    <p>${badge.description}</p>
+                </div>
+                <div class="badge-progress">${badge.count}/${badge.goal}</div>
+            `;
+
+            badgesContainer.appendChild(badgeElement);
+        });
+    });
+</script>
+</body>
+</html>

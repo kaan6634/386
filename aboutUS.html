@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyHabits+</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fefac5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            width: 90%;
+            max-width: 1200px;
+            height: 80%;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #fefac5;
+        }
+
+        .sidebar {
+            width: 20%;
+            background-color: #c8e6c9;
+            padding: 20px;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sidebar h1 {
+            color: #00796b;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-button {
+            background-color: #8eacbb;
+            border: none;
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: left;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #ffffff;
+        }
+
+        .sidebar-button:hover {
+            background-color: #546e7a;
+        }
+
+        .sidebar-button i {
+            margin-right: 10px;
+        }
+
+        .main-content {
+            width: 80%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .main-content h2 {
+            color: #00796b;
+        }
+
+        .main-content p {
+            margin: 20px 0;
+            text-align: center;
+            color: #616161;
+        }
+
+        .learn-more-button {
+            background-color: #ff7043;
+            border: none;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .learn-more-button:hover {
+            background-color: #f4511e;
+        }
+
+        .home-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #aed581;
+            border: none;
+            color: #ffffff;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .sidebar-button.active {
+            background-color: #00796b; /* Active button color */
+            color: #ffffff;
+        }
+
+        .home-button:hover {
+            background-color: #7cb342;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="sidebar">
+        <h1>MyHabits+</h1>
+        <a href="profile.html" style="width: 100%"><button class="sidebar-button">My Profile</button></a>
+        <a href="friends.html" style="width: 100%">   <button class="sidebar-button">Friends</button> </a>
+        <a href="aboutUS.html" style="width: 100%">   <button class="sidebar-button active">About US</button> </a>
+        <a href="helpPage.html" style="width: 100%">   <button class="sidebar-button">Help</button> </a>
+    </div>
+    <div class="main-content">
+        <a href="main.html"> <button class="home-button"><i class="fas fa-arrow-left"></i> HOME</button></a>
+        <h2>Welcome to MyHabits+</h2>
+        <p>Welcome to our website dedicated to daily habits! Here at MyHabits+, we believe that small actions performed consistently can lead to profound transformations in our lives. Whether you're looking to boost productivity, improve health and wellness, cultivate mindfulness, or enhance your overall lifestyle, we're here to provide you with the tools, resources, and inspiration you need to cultivate positive habits. Our mission is to empower individuals to make meaningful changes one day at a time. Join us on this journey of self-improvement and discover the power of daily habits to shape a brighter future.</p>
+        <p>We are a passionate team of individuals dedicated to the exploration and celebration of daily habits. With diverse backgrounds in psychology, wellness, productivity, and lifestyle design, we've come together with a shared vision: to empower individuals to harness the transformative power of consistent, intentional actions. Our collective expertise and experiences fuel our mission to provide valuable insights, practical strategies, and a supportive community for anyone seeking to cultivate positive habits and lead a more fulfilling life. Whether you're embarking on a journey of self-discovery or seeking to refine your daily routines, we're here to guide and inspire you every step of the way. Welcome to our community - let's embark on this journey of growth and transformation together.</p>
+        <button class="learn-more-button">Learn More</button>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+</body>
+</html>
