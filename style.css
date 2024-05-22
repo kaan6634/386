@@ -51,7 +51,7 @@ body {
     color: #00796b;
 }
 
-.right-panel input[type="email"],
+.right-panel input[type="text"],
 .right-panel input[type="password"] {
     margin-bottom: 15px;
     padding: 10px;
